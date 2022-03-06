@@ -10,7 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.xiii_lab.spacex.ui.theme.SpaceXTheme
+import com.xiii_lab.spacex.design.theme.SpaceXTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

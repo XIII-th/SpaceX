@@ -1,4 +1,4 @@
-package com.xiii_lab.spacex.ui.theme
+package com.xiii_lab.spacex.design.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
@@ -16,15 +16,6 @@ private val LightColorPalette = lightColors(
     primary = Purple500,
     primaryVariant = Purple700,
     secondary = Teal200
-
-    /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
 )
 
 @Composable
@@ -37,8 +28,6 @@ fun SpaceXTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable
 
     MaterialTheme(
         colors = colors,
-        typography = Typography,
-        shapes = Shapes,
         content = content
     )
 }

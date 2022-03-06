@@ -1,4 +1,4 @@
-package com.xiii_lab.spacex.ui.theme
+package com.xiii_lab.spacex.design.theme
 
 import androidx.compose.ui.graphics.Color
 
