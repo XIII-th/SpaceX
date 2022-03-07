@@ -41,7 +41,7 @@ internal fun DragonListItem(dragon: Dragon) {
 @Composable
 internal fun PreviewDragonsList() {
     SpaceXTheme {
-        val items = (0..15).map { DragonModel(UUID.randomUUID(), "Dragon with name $it") }
+        val items = (0..15).map { DragonModel(it.toString(), "Dragon with name $it") }
         DragonsList(dragons = items)
     }
 }
@@ -50,7 +50,7 @@ internal fun PreviewDragonsList() {
 @Composable
 internal fun PreviewDragonListItem() {
     SpaceXTheme {
-        val item = DragonModel(UUID.randomUUID(), "Sample dragon name")
+        val item = DragonModel("id_string", "Sample dragon name")
         DragonListItem(dragon = item)
     }
 }

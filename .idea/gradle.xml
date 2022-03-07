@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/dragons_data" />
             <option value="$PROJECT_DIR$/dragons_remote" />
             <option value="$PROJECT_DIR$/navigation" />
+            <option value="$PROJECT_DIR$/remote" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

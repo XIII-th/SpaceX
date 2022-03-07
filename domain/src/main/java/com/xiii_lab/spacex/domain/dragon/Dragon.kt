@@ -9,6 +9,6 @@ import java.util.*
 @Immutable
 interface Dragon {
 
-    val id: UUID
+    val id: String
     val name: String
 }
