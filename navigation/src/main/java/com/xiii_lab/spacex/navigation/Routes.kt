@@ -7,9 +7,9 @@ import androidx.navigation.NavBackStackEntry
  */
 object Routes {
 
-    val HomeRoute = DragonList
+    val HomeRoute = LaunchesList
 
-    val primaryRoutes = listOf(DragonList, LaunchpadList, LandpadList)
+    val primaryRoutes = listOf(LaunchesList, LaunchpadList, LandpadList)
 
     fun fromNavigationEntry(backstackEntry: NavBackStackEntry?): Route {
         val route = backstackEntry?.run { destination.route } ?: return HomeRoute

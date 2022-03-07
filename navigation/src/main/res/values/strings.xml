@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dragons_list">Dragons</string>
+    <string name="launches_list">Launches</string>
     <string name="launchpad_list">Launchpads</string>
     <string name="landpad_list">Landpads</string>
 </resources>

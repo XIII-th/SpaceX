@@ -17,8 +17,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.xiii_lab.spacex.design.theme.SpaceXTheme
-import com.xiii_lab.spacex.dragons.DragonsListDestination
-import com.xiii_lab.spacex.navigation.DragonList
+import com.xiii_lab.spacex.launches.LaunchesListDestination
+import com.xiii_lab.spacex.navigation.LaunchesList
 import com.xiii_lab.spacex.navigation.LandpadList
 import com.xiii_lab.spacex.navigation.LaunchpadList
 import com.xiii_lab.spacex.navigation.Routes
@@ -55,8 +55,8 @@ internal fun SpaceXHostScreen() {
             startDestination = HomeRoute.name,
             Modifier.padding(innerPadding)
         ) {
-            DragonList.route(this) {
-                DragonsListDestination()
+            LaunchesList.route(this) {
+                LaunchesListDestination()
             }
             LaunchpadList.route(this) {
                 Text(text = "Launchpads screen")
