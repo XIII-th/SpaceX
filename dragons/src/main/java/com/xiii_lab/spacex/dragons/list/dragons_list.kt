@@ -1,7 +1,7 @@
 /**
  * Created by XIII-th on 07.03.2022
  */
-package com.xiii_lab.spacex.dragons
+package com.xiii_lab.spacex.dragons.list
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -16,7 +16,8 @@ import com.xiii_lab.spacex.domain.dragon.DragonModel
 import java.util.*
 
 @Composable
-internal fun DragonsListScreen() {
+internal fun DragonsListScreen(dragons: List<Dragon>) {
+    DragonsList(dragons = dragons)
 }
 
 @Composable
