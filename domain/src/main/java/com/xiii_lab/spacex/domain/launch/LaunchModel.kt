@@ -5,5 +5,8 @@ package com.xiii_lab.spacex.domain.launch
  */
 data class LaunchModel(
     override val id: String,
-    override val name: String
+    override val name: String,
+    override val details: String,
+    override val flightNumber: Int,
+    override val links: LaunchLinksModel
 ) : Launch

@@ -6,11 +6,8 @@ import androidx.compose.runtime.Immutable
  * Created by XIII-th on 07.03.2022
  */
 @Immutable
-interface Launch {
+interface LaunchPatch {
 
-    val id: String
-    val name: String
-    val details: String
-    val flightNumber: Int
-    val links: LaunchLinks
+    val small: String
+    val large: String
 }
