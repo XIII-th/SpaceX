@@ -3,13 +3,18 @@
  */
 package com.xiii_lab.spacex.launches.list
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ListItem
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.xiii_lab.spacex.design.theme.LIST_ITEM_VERTICAL_SPACING
+import com.xiii_lab.spacex.design.theme.SCREEN_PADDING
 import com.xiii_lab.spacex.design.theme.SpaceXTheme
 import com.xiii_lab.spacex.domain.launch.Launch
 import com.xiii_lab.spacex.domain.launch.LaunchLinksModel
@@ -23,7 +28,10 @@ internal fun LaunchesListScreen(launches: List<Launch>) {
 
 @Composable
 internal fun LaunchesList(launches: List<Launch>) {
-    LazyColumn {
+    LazyColumn(
+        verticalArrangement = Arrangement.spacedBy(LIST_ITEM_VERTICAL_SPACING),
+        contentPadding = PaddingValues(SCREEN_PADDING)
+    ) {
         items(launches, Launch::id) { item ->
             LaunchListItem(launch = item)
         }
@@ -33,8 +41,14 @@ internal fun LaunchesList(launches: List<Launch>) {
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 internal fun LaunchListItem(launch: Launch) {
-    ListItem {
-        Text(text = launch.name)
+    Card {
+        ListItem(
+            overlineText = {
+                Text(text = "#${ launch.flightNumber }")
+            }
+        ) {
+            Text(text = launch.name)
+        }
     }
 }
 
