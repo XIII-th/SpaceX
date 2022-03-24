@@ -3,16 +3,22 @@
  */
 package com.xiii_lab.spacex.launches.list
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Card
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.ListItem
-import androidx.compose.material.Text
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.xiii_lab.spacex.design.theme.LIST_ITEM_VERTICAL_SPACING
 import com.xiii_lab.spacex.design.theme.SCREEN_PADDING
 import com.xiii_lab.spacex.design.theme.SpaceXTheme
@@ -41,13 +47,44 @@ internal fun LaunchesList(launches: List<Launch>) {
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 internal fun LaunchListItem(launch: Launch) {
-    Card {
-        ListItem(
-            overlineText = {
-                Text(text = "#${ launch.flightNumber }")
-            }
+    Card(
+        shape = MaterialTheme.shapes.medium.copy(
+            topEnd = CornerSize(percent = 50),
+            bottomEnd = CornerSize(50)
+        )
+    ) {
+        val imageUri = launch.links.patch.small
+        val flightNumber = remember(launch.flightNumber) { "#${launch.flightNumber}" }
+        LaunchListItemContent(launch.name, flightNumber, imageUri)
+    }
+}
+
+@Composable
+internal fun LaunchListItemContent(launchName: String, flightNumber: String, imageUri: String) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(72.dp)
+    ) {
+        Column(Modifier.padding(16.dp).fillMaxWidth()) {
+            Text(text = flightNumber, style = MaterialTheme.typography.overline)
+            Text(text = launchName, style = MaterialTheme.typography.subtitle1)
+        }
+        Box(
+            modifier = Modifier
+                .align(Alignment.CenterEnd)
+                .clip(shape = CircleShape)
         ) {
-            Text(text = launch.name)
+            AsyncImage(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(imageUri)
+                    .crossfade(true)
+                    .build(),
+                modifier = Modifier
+                    .aspectRatio(1F)
+                    .padding(16.dp),
+                contentDescription = null
+            )
         }
     }
 }
