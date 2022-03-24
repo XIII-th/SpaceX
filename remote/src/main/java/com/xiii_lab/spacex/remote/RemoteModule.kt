@@ -1,5 +1,7 @@
 package com.xiii_lab.spacex.remote
 
+import com.google.gson.FieldNamingPolicy
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,6 +19,11 @@ internal class RemoteModule {
     @Provides
     fun provideRetrofit(): Retrofit = Retrofit.Builder()
         .baseUrl("https://api.spacexdata.com/v4/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+        .addConverterFactory(
+            GsonConverterFactory.create(
+                GsonBuilder()
+                    .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                    .create()
+            )
+        ).build()
 }
